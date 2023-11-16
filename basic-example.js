@@ -47,6 +47,7 @@ function promiseWithException(input) {
     /* promises - the promises will run one after the other */
 
     /* Example 1: chaining - very messy and can get out of hand quickly: callback hell */
+    /* Without using "await", the promise chain runs, but the "console.log('test')" line will not wait for the promise to finish */
     // promise('Hello World')
     //     .then(console.log)
     //     .then(() =>
@@ -56,8 +57,11 @@ function promiseWithException(input) {
     //     .finally(() => console.log('Done!'))
     //     .catch(console.error);
 
+    // console.log('test')
+
 
     /* Example 2: async/await - much cleaner and easier to read */
+    /* However, when using "await", the "awaited" promises must run in order before the "console.log('test')" can run */
     // try {
     //     const data = await promise('Hello World');
     //     console.log(data);
@@ -68,6 +72,8 @@ function promiseWithException(input) {
     // } finally {
     //     console.log('Done!');
     // }
+
+    // console.log('test')
 
 
     /* Example 3: async/await with error handling */
